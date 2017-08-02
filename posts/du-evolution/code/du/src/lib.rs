@@ -1,4 +1,5 @@
-#[macro_use] extern crate error_chain;
+#[macro_use]
+extern crate error_chain;
 extern crate glob;
 extern crate walkdir;
 
@@ -21,4 +22,3 @@ pub mod errors {
     }
     pub use self::ErrorKind::*;
 }
-
