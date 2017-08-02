@@ -1,0 +1,12 @@
+[package]
+name = "du"
+version = "0.1.0"
+authors = ["Alex Burka <aburka@seas.upenn.edu>"]
+
+[dependencies]
+error-chain = "0.10"
+clap = "2.25"
+glob = "0.2"
+walkdir = "1"
+fallible-iterator = "0.1"
+
