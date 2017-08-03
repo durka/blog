@@ -12,14 +12,14 @@ use du::errors::*;
 fn local_du<P: AsRef<Path>>(path: P) -> Result<u64> {
     WalkDir::new(path)
         .into_iter()
-        .map(|entry| {
-                 entry.and_then(|entry| entry.metadata())
-                      .map(|meta| meta.len())
-             })
-        .fold(Ok(0), |a, b| match (a, b) {
-            (Ok(a), Ok(b)) => Ok(a + b),
-            (err, _) => err,
-        })
+        .map(|entry| entry.and_then(|entry| entry.metadata())
+                          .map(|meta| meta.len())
+                          .map_err(Into::into))
+        .fold(Ok(0),
+              |a, b| match (a, b) {
+                  (Ok(a), Ok(b)) => Ok(a + b),
+                  (e @ Err(_), _) | (_, e @ Err(_)) => e,
+              })
 }
 
 fn main() {
