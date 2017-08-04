@@ -1,16 +1,21 @@
 #!/bin/bash
 
-NWARM=25
-NITER=1000
-DIR="~/Documents/research/proton/code/nri/data/20170716/stickcam/1/"
+NWARM=10
+NITER=50
+DIR=/Users/alex/.cargo
 
 for n in 1 2 3; do
-    CMD="cargo run --release --bin v$n $DIR"
-    for i in $(seq 25); do
-        $CMD >/dev/null 2>&1
+    echo "Compiling v$n..."
+    cargo build --release --bin v$n
+    echo -n "Warming up v$n..."
+    for i in $(seq $NWARM); do
+        target/release/v$n $DIR >/dev/null 2>&1
     done
-    for i in $(seq 1000); do
-        /usr/bin/time -p $CMD 2>&1| rg real | awk '{print $2}'
+    echo ""
+    echo -n "Timing v$n..."
+    for j in $(seq $NITER); do
+        /usr/bin/time -p target/release/v$n $DIR 2>&1| rg real | awk '{print $2}'
     done | st 2>/dev/null | rg 'mean|stddev'
+    echo ""
 done
 

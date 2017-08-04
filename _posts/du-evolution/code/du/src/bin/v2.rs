@@ -1,13 +1,15 @@
-extern crate glob;
+#[macro_use] extern crate error_chain;
 extern crate walkdir;
-
 use walkdir::WalkDir;
 
 use std::env;
 use std::path::{Path, PathBuf};
 
-extern crate du;
-use du::errors::*;
+error_chain! {
+    foreign_links {
+        WalkDir(::walkdir::Error);
+    }
+}
 
 fn local_du<P: AsRef<Path>>(path: P) -> Result<u64> {
     WalkDir::new(path)

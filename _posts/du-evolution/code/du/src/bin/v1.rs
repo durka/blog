@@ -1,10 +1,16 @@
-extern crate glob;
-
+#[macro_use] extern crate error_chain;
 use std::env;
 use std::path::{Path, PathBuf};
+use self::ErrorKind::*;
 
-extern crate du;
-use du::errors::*;
+error_chain! {
+    errors {
+        Io(op: &'static str, path: PathBuf) {
+            description("I/O operation failed")
+            display("Could not {} {}", op, path.display())
+        }
+    }
+}
 
 fn local_du(path: &Path) -> Result<u64> {
     Ok(path.read_dir()
