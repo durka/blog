@@ -1,3 +1,6 @@
+---
+layout: default
+---
 ## Blog goes here
 
 ### Posts
