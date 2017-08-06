@@ -8,11 +8,12 @@ cols = {'du', 'v1', 'v2', 'v3'};
 figure
 boxplot(data, cols)
 ylabel('Time (s)')
-set(gcf, 'Color', [.3 .3 .3]);
-set(gca, 'Color', [.3 .3 .3]);
-set(gca, 'XColor', 'white');
-set(gca, 'YColor', 'white');
-export_fig('boxplot.png')
+set(gcf, 'Color', [.3 .3 .3])
+set(gca, 'Color', [.3 .3 .3])
+set(gca, 'XColor', 'white')
+set(gca, 'YColor', 'white')
+set(gca, 'FontSize', 16)
+export_fig boxplot.png -p0.05 -m2
 
 %% statistics
 
