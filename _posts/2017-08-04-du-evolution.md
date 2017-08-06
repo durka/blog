@@ -144,7 +144,7 @@ I ran each version of the code on the same directory. For each, I ran it 20 time
 
 ...and in graph form:
 
-<center><img src="{{ site.github.url }}/assets/images/boxplot.png" alt="Box plot of timing results"/></center>
+<center><img src="{{ site.github.url }}/assets/images/boxplot.png" alt="Box plot of timing results" width="75%"/></center>
 
 ## Unresolved questions
 
