@@ -148,5 +148,5 @@ I ran each version of the code on the same directory. For each, I ran it 20 time
 
 ## Unresolved questions
 
-- Compliments, flames, comments about my code, writing or CSS (first post here!), please comment below or on reddit!
+- Compliments, flames, comments about my code, writing or CSS (first post here!), please comment below or [on reddit](https://www.reddit.com/r/rust/comments/6rzr2i/evolution_of_a_simple_du_s_clone/)!
 
