@@ -18,11 +18,11 @@ end
 
 fprintf('\nSigned-rank\n\t');
 for c=1:length(cols)
-    fprintf('%s\t', names{c});
+    fprintf('%s\t', cols{c});
 end
 fprintf('\n');
 for c=1:length(cols)
-    fprintf('%s\t', names{c});
+    fprintf('%s\t', cols{c});
     for d=1:length(cols)
         fprintf('%1.3f\t', signrank(data(:,c), data(:,d)));
     end
