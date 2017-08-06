@@ -131,7 +131,7 @@ This is the final form of the code, and I find it beautiful. The intent reads di
 
 Finally, a word about zero-cost abstractions. You might think I paid a price for simplifying the code and lazifying the error handling. But I didn't! Compiling in debug mode, you would be right. But nobody compiles in debug mode, right? It's just too slow for real work. In release mode, these programs have very nearly identical runtimes, validating Rust's core promise of _zero-cost abstractions_. Here's the data:
 
-I ran each version of the code on the same directory. For each, I ran it 20 times to warm up whatever caches there might be, then 100 times to collect timing data. Incidentally, there is 29 GB of data in 421.557 files in the subject directory. I also compared against native `du -s`.[^2] Here are the results, in table form:
+I ran each version of the code on the same directory. For each, I ran it 20 times to warm up whatever caches there might be, then 100 times to collect timing data. Incidentally, there is 29 GB of data in 421,557 files in the subject directory. I also compared against native `du -s`.[^2] Here are the results, in table form:
 
 [^2]: Note that `du` counts in 512-byte blocks by default. On OSX (presumably BSD as well?), you can't set the block size any lower than that. So implementations like mine will report lower numbers, and it's not as simple as just dividing by 512 because `du` rounds up to the block size **for every file**. On Linux, `du -sb` and my programs agree. As it happens, the number I get is more useful for my purposes, since I'm estimating network transfer time, not provisioning hard drive sectors.
 
@@ -145,8 +145,10 @@ I ran each version of the code on the same directory. For each, I ran it 20 time
 ...and in graph form:
 
 <center><img src="{{ site.github.url }}/assets/images/boxplot.png" alt="Box plot of timing results" width="75%"/></center>
+<br/>
 
 ## Unresolved questions
 
 - Compliments, flames, comments about my code, writing or CSS (first post here!), please comment below or [on reddit](https://www.reddit.com/r/rust/comments/6rzr2i/evolution_of_a_simple_du_s_clone/)!
 
+<br/>
